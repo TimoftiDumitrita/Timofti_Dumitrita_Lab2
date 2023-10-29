@@ -19,6 +19,7 @@ namespace Timofti_Dumitrita_Lab2.Models
         public int? AuthorID { get; set; }
         [Display(Name = "Author Name")]
         public Author? Author { get; set; }
+        public ICollection<BookCategory>? BookCategories { get; set; }
     } 
 }
 
