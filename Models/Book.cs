@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Policy;
 
 namespace Timofti_Dumitrita_Lab2.Models
+
 {
     public class Book
     {
@@ -20,6 +21,7 @@ namespace Timofti_Dumitrita_Lab2.Models
         [Display(Name = "Author Name")]
         public Author? Author { get; set; }
         public ICollection<BookCategory>? BookCategories { get; set; }
-    } 
+       
 }
+    }
 
