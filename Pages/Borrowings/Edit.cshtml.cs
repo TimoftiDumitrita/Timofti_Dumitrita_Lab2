@@ -25,6 +25,14 @@ namespace Timofti_Dumitrita_Lab2.Pages.Borrowings
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            var bookList = _context.Book
+                .Select(x => new
+                {
+                    x.ID,
+                    BookFullName = x.Title
+
+                });
+
             if (id == null || _context.Borrowing == null)
             {
                 return NotFound();
@@ -36,8 +44,9 @@ namespace Timofti_Dumitrita_Lab2.Pages.Borrowings
                 return NotFound();
             }
             Borrowing = borrowing;
-           ViewData["BookID"] = new SelectList(_context.Book, "ID", "ID");
-           ViewData["MemberID"] = new SelectList(_context.Member, "ID", "ID");
+           ViewData["BookID"] = new SelectList(bookList, "ID", "BookFullName");
+           ViewData["MemberID"] = new SelectList(_context.Member, "ID", "FullName");
+            ViewData["ReturnDate"] = new SelectList(_context.Member, "ID", "ReturnDate");
             return Page();
         }
 

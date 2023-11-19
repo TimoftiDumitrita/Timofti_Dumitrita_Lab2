@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Timofti_Dumitrita_Lab2.Models;
 
 namespace Timofti_Dumitrita_Lab2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : BookCategoryPageModel
     {
         private readonly Timofti_Dumitrita_Lab2.Data.Timofti_Dumitrita_Lab2Context _context;
